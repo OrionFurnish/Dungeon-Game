@@ -7,6 +7,8 @@ public class Exit : MonoBehaviour {
     [HideInInspector] public Vector2Int targetIndex;
 
     public void OnCollisionEnter2D(Collision2D collision) {
-        GameManager.instance.EnterRoom(targetIndex.x, targetIndex.y);
+        if(collision.gameObject.CompareTag("Player")) {
+            GameManager.instance.EnterRoom(targetIndex.x, targetIndex.y);
+        }
     }
 }

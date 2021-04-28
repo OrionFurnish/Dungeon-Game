@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     public int mapSize;
     public int newPathChance;
     public int stopDirectionChance;
+    public RoomLayout[] roomLayouts;
 
     private Room[,] map;
     private Vector2Int currentLocation;
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void Start() {
-        MapGenerator mapGenerator = new MapGenerator(mapSize, newPathChance, stopDirectionChance);
+        MapGenerator mapGenerator = new MapGenerator(mapSize, newPathChance, stopDirectionChance, roomLayouts);
         map = mapGenerator.GenerateMap();
         mapDisplay.GenerateMapDisplay(map);
         EnterRoom(0, 0);

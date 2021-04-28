@@ -7,15 +7,17 @@ public class MapGenerator {
     private int newPathChance;
     private int stopDirectionChance;
     private int size;
+    private RoomLayout[] roomLayouts;
 
     private Queue<System.Action> extraDirectionQueue;
 
     private delegate void GenerateMethod(int x, int y);
 
-    public MapGenerator(int size, int newPathChance, int stopDirectionChance) {
+    public MapGenerator(int size, int newPathChance, int stopDirectionChance, RoomLayout[] roomLayouts) {
         this.size = size;
         this.newPathChance = newPathChance;
         this.stopDirectionChance = stopDirectionChance;
+        this.roomLayouts = roomLayouts;
     }
 
     public Room[,] GenerateMap() {
@@ -107,7 +109,12 @@ public class MapGenerator {
     }
 
     private Room CreateRoom(int x, int y) {
-        Room room = new Room(x, y, 5);
+        Room room = new Room(x, y);
+        if (roomLayouts.Length > 0) {
+            RoomLayout layout = roomLayouts[Random.Range(0, roomLayouts.Length)];
+            room.layout = layout.GetCopy();
+            room.size = layout.size;
+        }
         return room;
     }
 
@@ -124,8 +131,9 @@ public class Room {
     public Room westExit;
     public int size;
 
-    public Room(int x, int y, int size) {
+    public EntityData[] layout;
+
+    public Room(int x, int y) {
         this.position = new Vector2Int(x, y);
-        this.size = size;
     }
 }
