@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4804573467201971373}
   - component: {fileID: 7607373371318665716}
   - component: {fileID: -6223458971479695275}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Exit Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,3 +122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf1cebeb324f4968853c9d4e92ab489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enteringOffset: {x: 0, y: 1, z: 0}
+  closedIcon: {fileID: 21300000, guid: 81df92abc9c8d4ee78caa293fae9f074, type: 3}
+  targetIndex: {x: 0, y: 0}

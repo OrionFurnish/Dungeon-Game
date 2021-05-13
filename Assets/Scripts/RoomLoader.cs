@@ -42,9 +42,14 @@ public class RoomLoader : MonoBehaviour {
         // Wall Tops
         for(float i = -room.size / 2f; i < room.size / 2f; i++) {
             Transform trans;
-            if(i != -.5f || room.northExit == null) {
+            if(i == -.5f && room.finalRoom) {
+                // Generate Final Exit
+                trans = Instantiate(exitTop, groundParent);
+                trans.GetComponent<Exit>().targetIndex = new Vector2Int(-1, -1);
+            } else if(i != -.5f || room.northExit == null) {
                 trans = Instantiate(wallTop, groundParent);
-            } else { // Generate Exit
+            } else {
+                // Generate Exit
                 trans = Instantiate(exitTop, groundParent);
                 trans.GetComponent<Exit>().targetIndex = room.northExit.position;
             }
@@ -96,10 +101,6 @@ public class RoomLoader : MonoBehaviour {
         wallCorner.position = new Vector3(-room.size / 2f - .5f, room.size / 2f + .5f, 0f);
         wallCorner = Instantiate(wallTopRight, groundParent);
         wallCorner.position = new Vector3(room.size / 2f + .5f, room.size / 2f + .5f, 0f);
-
-
-        // Place Player
-        player.transform.position = new Vector3(0f, 0f, 0f);
 
         // Load Layout
         LoadLayout(room.layout);

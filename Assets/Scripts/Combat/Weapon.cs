@@ -6,7 +6,7 @@ public class Weapon : MonoBehaviour {
     public float damage;
     public float knockback;
 
-    public void OnTriggerEnter2D(Collider2D collision) {
+    public virtual void OnTriggerEnter2D(Collider2D collision) {
         Controller controller = collision.GetComponent<Controller>();
         if(controller != null) {
             controller.TakeDamage(damage);

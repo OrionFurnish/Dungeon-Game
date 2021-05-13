@@ -3,42 +3,69 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour {
-    public float targetDistanceMin, targetDistanceMax;
+    public float targetDistanceMin, targetDistanceMax, attackDistance;
+    public float attackChance;
+    public float attackChargeTime;
+    public Color chargeColor;
 
-    private EnemyController controller;
+    protected EnemyController controller;
+    protected SpriteRenderer sr;
+    protected Color baseColor;
 
     private void Start() {
         controller = GetComponent<EnemyController>();
+        sr = GetComponent<SpriteRenderer>();
+        baseColor = sr.color;
         StartCoroutine(ChooseAction());
     }
 
-    IEnumerator ChooseAction() {
+    protected virtual IEnumerator ChooseAction() {
         while (gameObject.activeSelf) {
-            IEnumerator currentAction = MaintainDistance();
-            yield return StartCoroutine(currentAction);
+            IEnumerator currentAction = null;
+            float r = Random.Range(0f, 100f);
+            if (r <= attackChance) {
+                currentAction = Attack();
+            }
+
+            if (currentAction != null) {
+                yield return StartCoroutine(currentAction);
+            } else {
+                MaintainDistance();
+                yield return new WaitForFixedUpdate();
+            }
         }
     }
 
-    public IEnumerator MaintainDistance() {
-        while (!SF.GetWithinRange(transform.position, PlayerController.instance.transform.position, targetDistanceMax)) {
+    public void MaintainDistance() {
+        if (!SF.GetWithinRange(transform.position, PlayerController.instance.transform.position, targetDistanceMax)) {
             controller.Move(PlayerController.instance.transform.position);
-            yield return new WaitForFixedUpdate();
         }
-        while (SF.GetWithinRange(transform.position, PlayerController.instance.transform.position, targetDistanceMin)) {
+        else if (SF.GetWithinRange(transform.position, PlayerController.instance.transform.position, targetDistanceMin)) {
             controller.MoveAway(PlayerController.instance.transform.position);
-            yield return new WaitForFixedUpdate();
         }
     }
 
     public IEnumerator Attack() {
-        yield return null;
+        float startTime = Time.time;
+        yield return new WaitForFixedUpdate();
+        while (!SF.GetWithinRange(transform.position, PlayerController.instance.transform.position, attackDistance)) {
+            controller.Move(PlayerController.instance.transform.position);
+            yield return new WaitForFixedUpdate();
+        }
+        controller.LookAt(PlayerController.instance.transform.position);
+        // Start Charge
+        controller.attacking = true;
+        sr.color = chargeColor;
+        yield return new WaitForSeconds(attackChargeTime);
+        // Attack
+        PerformAttack();
+        while(controller.attacking) {
+            yield return null;
+        }
+        sr.color = baseColor;
     }
 
-    public IEnumerator LungeAttack() {
-        yield return null;
-    }
-
-    public IEnumerator Flee() {
-        yield return null;
+    protected virtual void PerformAttack() {
+        controller.anim.SetTrigger("Attack");
     }
 }

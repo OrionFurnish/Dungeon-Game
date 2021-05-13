@@ -7,16 +7,18 @@ public class MapGenerator {
     private int newPathChance;
     private int stopDirectionChance;
     private int size;
+    private RoomLayout startingRoom;
     private RoomLayout[] roomLayouts;
 
     private Queue<System.Action> extraDirectionQueue;
 
     private delegate void GenerateMethod(int x, int y);
 
-    public MapGenerator(int size, int newPathChance, int stopDirectionChance, RoomLayout[] roomLayouts) {
+    public MapGenerator(int size, int newPathChance, int stopDirectionChance, RoomLayout startingRoom, RoomLayout[] roomLayouts) {
         this.size = size;
         this.newPathChance = newPathChance;
         this.stopDirectionChance = stopDirectionChance;
+        this.startingRoom = startingRoom;
         this.roomLayouts = roomLayouts;
     }
 
@@ -24,7 +26,7 @@ public class MapGenerator {
         extraDirectionQueue = new Queue<System.Action>();
         map = new Room[size, size];
         int x = 0, y = 0;
-        map[x, y] = CreateRoom(x, y);
+        map[x, y] = CreateStartRoom(x, y);
         GenerateRooms(x, y);
         while(extraDirectionQueue.Count > 0) {
             extraDirectionQueue.Dequeue().Invoke();
@@ -109,11 +111,20 @@ public class MapGenerator {
     }
 
     private Room CreateRoom(int x, int y) {
+        RoomLayout layout = roomLayouts[Random.Range(0, roomLayouts.Length)];
+        return CreateRoom(x, y, layout);
+    }
+
+    private Room CreateStartRoom(int x, int y) {
+        return CreateRoom(x, y, startingRoom);
+    }
+
+    private Room CreateRoom(int x, int y, RoomLayout layout) {
         Room room = new Room(x, y);
-        if (roomLayouts.Length > 0) {
-            RoomLayout layout = roomLayouts[Random.Range(0, roomLayouts.Length)];
-            room.layout = layout.GetCopy();
-            room.size = layout.size;
+        room.layout = layout.GetCopy();
+        room.size = layout.size;
+        if(x == size-1 && y == size-1) {
+            room.finalRoom = true;
         }
         return room;
     }
@@ -130,6 +141,7 @@ public class Room {
     public Room southExit;
     public Room westExit;
     public int size;
+    public bool finalRoom = false;
 
     public EntityData[] layout;
 

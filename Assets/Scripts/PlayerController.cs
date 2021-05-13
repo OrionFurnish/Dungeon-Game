@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : Controller {
     public static PlayerController instance;
-    public float attackCooldown;
+
+    public float dodgeForce;
+    public float dodgeTime;
+    public float dodgeCooldown;
+
+    private IEnumerator currentDodge = null;
 
     private void Start() {
         if(instance == null) {
@@ -17,12 +23,13 @@ public class PlayerController : Controller {
     }
 
     private void Update() {
-        if(!attacking) {
-            Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
+        Vector3 dir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
+        if (!attacking) {
             Vector3 movement = dir.normalized * stats.moveSpeed * Time.deltaTime;
+            anim.SetBool("IsWalking", movement.magnitude > 0);
             rb.AddForce(movement);
 
-            float rotation = 0;
+            float rotation;
             if (movement.x > 0) {
                 rotation = 270;
                 if (movement.y > 0) {
@@ -56,15 +63,26 @@ public class PlayerController : Controller {
         if (Input.GetKeyDown(KeyCode.Space)) {
             anim.SetTrigger("Attack");
         }
+        
+
+        if(Input.GetKeyDown(KeyCode.LeftShift) && currentDodge == null) {
+            currentDodge = Dodge(dir.normalized);
+            StartCoroutine(currentDodge);
+        }
     }
 
-    public void AttackCooldown() {
-        StartCoroutine(AttackCooldown(attackCooldown));
+    public IEnumerator Dodge(Vector3 direction) {
+        float startTime = Time.time;
+        while(startTime + dodgeTime > Time.time) {
+            Vector3 movement = direction * dodgeForce * Time.fixedDeltaTime;
+            rb.AddForce(movement);
+            yield return new WaitForFixedUpdate();
+        }
+        yield return new WaitForSeconds(dodgeCooldown);
+        currentDodge = null;
     }
 
-    IEnumerator AttackCooldown(float time) {
-        anim.SetBool("CanAttack", false);
-        yield return new WaitForSeconds(time);
-        anim.SetBool("CanAttack", true);
+    protected override void Die() {
+        SceneManager.LoadScene("Scene1");
     }
 }

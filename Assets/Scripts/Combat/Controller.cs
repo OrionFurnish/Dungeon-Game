@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Controller : MonoBehaviour {
+public class Controller : MonoBehaviour {
     public Stats stats;
     protected Rigidbody2D rb;
-    protected Animator anim;
+    public Animator anim;
     public BarControl lifeBar;
     public bool attacking;
+    public float attackCooldown;
 
-    private void Awake() {
+    protected virtual void Awake() {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -22,15 +23,33 @@ public abstract class Controller : MonoBehaviour {
         }
     }
 
+    public void Heal(float amount) {
+        stats.life += amount;
+        if(stats.life > stats.maxLife) {
+            stats.life = stats.maxLife;
+        }
+        lifeBar.Set(stats.life, stats.maxLife);
+    }
+
     public void TakeKnockback(float knockback, Vector3 origin) {
         rb.AddForce(SF.GetDirectionForce(origin, transform.position)*knockback);
     }
 
-    private void Die() {
+    protected virtual void Die() {
         Destroy(gameObject);
     }
 
     private void OnDestroy() {
         if (lifeBar != null) { Destroy(lifeBar.gameObject); }
+    }
+
+    public void AttackCooldown() {
+        StartCoroutine(AttackCooldown(attackCooldown));
+    }
+
+    IEnumerator AttackCooldown(float time) {
+        anim.SetBool("CanAttack", false);
+        yield return new WaitForSeconds(time);
+        anim.SetBool("CanAttack", true);
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2467070819178571685}
   m_Layer: 0
   m_Name: Sword Blade
-  m_TagString: Untagged
+  m_TagString: Player Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,12 +224,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    life: 10
-    maxLife: 10
-    moveSpeed: 10000
+    life: 20
+    maxLife: 20
+    moveSpeed: 8000
+  anim: {fileID: 0}
   lifeBar: {fileID: 0}
   attacking: 0
   attackCooldown: 0.2
+  dodgeForce: 25000
+  dodgeTime: 0.05
+  dodgeCooldown: 0.3
 --- !u!50 &321173883
 Rigidbody2D:
   serializedVersion: 4
