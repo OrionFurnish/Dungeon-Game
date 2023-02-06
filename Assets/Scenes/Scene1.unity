@@ -233,6 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 179094433}
   - component: {fileID: 179094434}
+  - component: {fileID: 179094435}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -268,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomLoader: {fileID: 1545710743}
   mapDisplay: {fileID: 717456597}
-  mapSize: 3
+  mapSize: 4
   newPathChance: 5
   stopDirectionChance: 60
   startingRoom: {fileID: 11400000, guid: 39534d80e93e644be8d746262dff8ac2, type: 2}
@@ -277,6 +278,26 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 39534d80e93e644be8d746262dff8ac2, type: 2}
   - {fileID: 11400000, guid: fda24e70180724a94a001c633b66cd62, type: 2}
   - {fileID: 11400000, guid: 3e01cdbab504143febf68b0cef18b690, type: 2}
+  - {fileID: 11400000, guid: 837e34e1c45ae4e388c9d3a5c133f80d, type: 2}
+  - {fileID: 11400000, guid: 9f08b907ba88341a3b2e9fcabd35372f, type: 2}
+  - {fileID: 11400000, guid: 30e27bdb9b8f8415590ff1005ecf7773, type: 2}
+  - {fileID: 11400000, guid: 9b7fe9058931e412a8fac6920dbf7a4d, type: 2}
+  - {fileID: 11400000, guid: ceaf200da036446d4b6ee0a5a4f7a3dd, type: 2}
+  - {fileID: 11400000, guid: 9d49fab02d5814c66a617a3a41cc82ad, type: 2}
+  - {fileID: 11400000, guid: e5bbe9b2dc4e84afe8ffacfae66e1e94, type: 2}
+  - {fileID: 11400000, guid: d388c9f65f31645d3b9448674117ae23, type: 2}
+--- !u!114 &179094435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179094432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43cd2ec2abc84a06b8ee0c426aa8f9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &354754635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -828,6 +849,10 @@ PrefabInstance:
     - target: {fileID: 3979990424501468273, guid: 1e5f13bc688ff47bcbca063302457b59, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979990424501468273, guid: 1e5f13bc688ff47bcbca063302457b59, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4252669189790651593, guid: 1e5f13bc688ff47bcbca063302457b59, type: 3}
       propertyPath: lifeBar

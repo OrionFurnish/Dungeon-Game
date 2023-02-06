@@ -48,7 +48,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Root/Right Shoulder
+    path: Test 2/Root/Right Shoulder
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -82,7 +82,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Root/Left Shoulder
+    path: Test 2/Root/Left Shoulder
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -116,7 +116,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Root/Head
+    path: Test 2/Root/Head
   m_ScaleCurves: []
   m_FloatCurves:
   - curve:
@@ -156,21 +156,21 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 880613597
+      path: 2145038040
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2194029921
+      path: 564428612
       attribute: 1
       script: {fileID: 0}
       typeID: 4
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 994018041
+      path: 1719554941
       attribute: 1
       script: {fileID: 0}
       typeID: 4
@@ -267,7 +267,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Root/Right Shoulder
+    path: Test 2/Root/Right Shoulder
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -304,7 +304,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Root/Right Shoulder
+    path: Test 2/Root/Right Shoulder
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -341,7 +341,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Root/Right Shoulder
+    path: Test 2/Root/Right Shoulder
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -378,7 +378,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Root/Left Shoulder
+    path: Test 2/Root/Left Shoulder
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -415,7 +415,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Root/Left Shoulder
+    path: Test 2/Root/Left Shoulder
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -452,7 +452,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Root/Left Shoulder
+    path: Test 2/Root/Left Shoulder
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -489,7 +489,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.x
-    path: Root/Head
+    path: Test 2/Root/Head
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -526,7 +526,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.y
-    path: Root/Head
+    path: Test 2/Root/Head
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -563,7 +563,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalPosition.z
-    path: Root/Head
+    path: Test 2/Root/Head
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves: []

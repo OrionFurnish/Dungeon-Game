@@ -210,7 +210,7 @@ MonoBehaviour:
   attack2Chance: 0.2
   attack2ChargeTime: 1.5
   attack2Color: {r: 0.8490566, g: 0.31554747, b: 0.20425417, a: 1}
-  attack2Prefab: {fileID: 5108960557384815997, guid: 01564a385b69f4e9098a5ae16217eccb, type: 3}
+  attack2Prefab: {fileID: 2097018394959265197, guid: 01564a385b69f4e9098a5ae16217eccb, type: 3}
   attack2SpawnDelay: 0.1
   attack2SpawnIncrement: 0.5
   healChargeColor: {r: 0.4229305, g: 0.7924528, b: 0.16820934, a: 1}

@@ -38,4 +38,8 @@ public static class SF {
         EventSystem.current.RaycastAll(pointerData, results);
         return results;
     }
+
+    public static void LookAt(Transform t, Vector3 target) {
+        t.up = target - t.position;
+    }
 }

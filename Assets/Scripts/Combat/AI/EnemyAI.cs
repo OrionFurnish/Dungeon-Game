@@ -6,16 +6,11 @@ public class EnemyAI : MonoBehaviour {
     public float targetDistanceMin, targetDistanceMax, attackDistance;
     public float attackChance;
     public float attackChargeTime;
-    public Color chargeColor;
 
     protected EnemyController controller;
-    protected SpriteRenderer sr;
-    protected Color baseColor;
 
     private void Start() {
         controller = GetComponent<EnemyController>();
-        sr = GetComponent<SpriteRenderer>();
-        baseColor = sr.color;
         StartCoroutine(ChooseAction());
     }
 
@@ -52,17 +47,16 @@ public class EnemyAI : MonoBehaviour {
             controller.Move(PlayerController.instance.transform.position);
             yield return new WaitForFixedUpdate();
         }
-        controller.LookAt(PlayerController.instance.transform.position);
         // Start Charge
         controller.attacking = true;
-        sr.color = chargeColor;
+        controller.anim.SetBool("Charging", true);
         yield return new WaitForSeconds(attackChargeTime);
+        controller.anim.SetBool("Charging", false);
         // Attack
         PerformAttack();
         while(controller.attacking) {
             yield return null;
         }
-        sr.color = baseColor;
     }
 
     protected virtual void PerformAttack() {

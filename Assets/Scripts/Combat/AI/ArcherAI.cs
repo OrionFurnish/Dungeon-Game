@@ -8,6 +8,8 @@ public class ArcherAI : EnemyAI {
     protected override void PerformAttack() {
         Transform t = Instantiate(projectile, transform.parent);
         t.GetComponent<Projectile>().target = PlayerController.instance.transform;
-        t.transform.position = transform.position;
+        t.position = transform.position;
+        SF.LookAt(t, PlayerController.instance.transform.position);
+        controller.attacking = false;
     }
 }

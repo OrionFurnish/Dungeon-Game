@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Room 4
   m_EditorClassIdentifier: 
   entities:
-  - position: {x: 2.996711, y: 1.4683874}
-    prefab: {fileID: 1258110490434424821, guid: 21273c7cc03ee4f2a9c1270317613e87, type: 3}
-  - position: {x: -0.03, y: 2.52}
-    prefab: {fileID: 4689511072209998743, guid: 483d2cdb47bef44df84f33a24ce8f6a0, type: 3}
+  - position: {x: -0.15681827, y: 1.9248633}
+    prefab: {fileID: 8014120275277463298, guid: 14636b759a80e4a2eac20e73443fa82a, type: 3}
+  - position: {x: 2.9276218, y: 1.6341735}
+    prefab: {fileID: 2056392363505651704, guid: 237aca119d16f4871be104975c7ad4d2, type: 3}
+  - position: {x: -2.84, y: 1.7}
+    prefab: {fileID: 8559320888626443881, guid: 0de35e2e3cf024dc997ed1ba81135770, type: 3}
   size: 9

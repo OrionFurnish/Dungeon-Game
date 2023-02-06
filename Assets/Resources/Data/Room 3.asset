@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Room 3
   m_EditorClassIdentifier: 
   entities:
-  - position: {x: 1.6262342, y: 2.1120148}
-    prefab: {fileID: 1258110490434424821, guid: 21273c7cc03ee4f2a9c1270317613e87, type: 3}
-  - position: {x: -1.6557119, y: 2.1337495}
-    prefab: {fileID: 1258110490434424821, guid: 21273c7cc03ee4f2a9c1270317613e87, type: 3}
+  - position: {x: 1.52512, y: 2.038094}
+    prefab: {fileID: 2056392363505651704, guid: 237aca119d16f4871be104975c7ad4d2, type: 3}
+  - position: {x: -2.3345647, y: 1.993214}
+    prefab: {fileID: 2056392363505651704, guid: 237aca119d16f4871be104975c7ad4d2, type: 3}
   size: 7

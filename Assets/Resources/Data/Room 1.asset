@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Room 1
   m_EditorClassIdentifier: 
   entities:
-  - position: {x: 1.7470338, y: -2.0129201}
-    prefab: {fileID: 595974050633639677, guid: 27a901d1eae2241878c305d943047e37, type: 3}
-  - position: {x: 2, y: 2}
-    prefab: {fileID: 595974050633639677, guid: 27a901d1eae2241878c305d943047e37, type: 3}
-  - position: {x: -2, y: -2}
-    prefab: {fileID: 1258110490434424821, guid: 21273c7cc03ee4f2a9c1270317613e87, type: 3}
-  - position: {x: -1.6091858, y: 1.7482283}
-    prefab: {fileID: 595974050633639677, guid: 27a901d1eae2241878c305d943047e37, type: 3}
+  - position: {x: -2.3223572, y: 0.8710799}
+    prefab: {fileID: 2056392363505651704, guid: 237aca119d16f4871be104975c7ad4d2, type: 3}
+  - position: {x: 2.06, y: -2.6}
+    prefab: {fileID: 8559320888626443881, guid: 0de35e2e3cf024dc997ed1ba81135770, type: 3}
+  - position: {x: 0.01, y: 1.22}
+    prefab: {fileID: 8559320888626443881, guid: 0de35e2e3cf024dc997ed1ba81135770, type: 3}
+  - position: {x: -1.7623411, y: -2.685531}
+    prefab: {fileID: 2056392363505651704, guid: 237aca119d16f4871be104975c7ad4d2, type: 3}
   size: 7

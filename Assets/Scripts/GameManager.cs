@@ -4,10 +4,8 @@ using UnityEngine;
 
 /**
  * TODO:
- *  Add New Sprites and Animations
  *  Save that rooms have been cleared of enemies
  *  Create a title screen
- *  Fix Shaman Fire attack and Projectile Attacks
  *  Add way to restore life
  *  Create / Rebalance rooms and dungeon size
  *  Add regular goblin enemy

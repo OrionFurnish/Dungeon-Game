@@ -36,8 +36,9 @@ public class Projectile : Weapon {
             GetComponent<SpriteRenderer>().color = deflectedColor;
             canHitEnemies = true;
             homing = 0f;
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(0, 0, 180));
         }
-        else if(!collision.gameObject.CompareTag("Enemy") || canHitEnemies) {
+        else if(!collision.gameObject.CompareTag("Enemy Attack") && (!collision.gameObject.CompareTag("Enemy") || canHitEnemies)) {
             base.OnTriggerEnter2D(collision);
             Destroy(gameObject);
         }

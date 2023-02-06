@@ -15,6 +15,10 @@ public class EnemyController : Controller {
         GameManager.instance.AddEnemy(this);
     }
 
+    private void Update() {
+        LookAt(PlayerController.instance.transform.position);
+    }
+
     /** Use in FixedUpdate */
     public void Move(Vector3 target) {
         SF.MoveTowards(rb, target, stats.moveSpeed*Time.fixedDeltaTime);
@@ -24,8 +28,8 @@ public class EnemyController : Controller {
         SF.MoveAway(rb, target, stats.moveSpeed * Time.fixedDeltaTime);
     }
 
-    public void LookAt(Vector3 target) {
-        transform.up = target - transform.position;
+    private void LookAt(Vector3 target) {
+        SF.LookAt(transform, target);
     }
 
     protected override void Die() {

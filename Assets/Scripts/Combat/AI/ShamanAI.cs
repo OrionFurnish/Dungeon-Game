@@ -5,11 +5,9 @@ using UnityEngine;
 public class ShamanAI : ArcherAI {
     public float attack2Chance;
     public float attack2ChargeTime;
-    public Color attack2Color;
     public Transform attack2Prefab;
     public float attack2SpawnDelay;
     public float attack2SpawnIncrement;
-    public Color healChargeColor;
     public float healChargeTime;
     public float healChance;
     public float healDistance;
@@ -44,13 +42,13 @@ public class ShamanAI : ArcherAI {
             controller.Move(healTarget.transform.position);
             yield return new WaitForFixedUpdate();
         } if(healTarget != null) {
-            sr.color = healChargeColor;
+            controller.anim.SetBool("Charging", true);
             yield return new WaitForSeconds(attackChargeTime);
             if (healTarget != null) {
                 // Heal
                 healTarget.Heal(healAmount);
             }
-            sr.color = baseColor;
+            controller.anim.SetBool("Charging", false);
         }
     }
 
@@ -74,9 +72,9 @@ public class ShamanAI : ArcherAI {
     }
 
     public IEnumerator Attack2() {
-        sr.color = attack2Color;
+        controller.anim.SetBool("Charging", true);
         yield return new WaitForSeconds(attack2ChargeTime);
-        sr.color = baseColor;
+        controller.anim.SetBool("Charging", false);
 
         int wallLayerMask = LayerMask.GetMask("Wall");
         RaycastHit2D southHit = Physics2D.Raycast(transform.position, Vector2.down, 20f, wallLayerMask);

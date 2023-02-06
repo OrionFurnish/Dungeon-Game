@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94f427661e9784851995e7a249a29b75, type: 3}
+  m_Name: Room 11
+  m_EditorClassIdentifier: 
+  entities:
+  - position: {x: 1.01, y: -0.69}
+    prefab: {fileID: 8559320888626443881, guid: 0de35e2e3cf024dc997ed1ba81135770, type: 3}
+  - position: {x: -0.74, y: -0.72}
+    prefab: {fileID: 8559320888626443881, guid: 0de35e2e3cf024dc997ed1ba81135770, type: 3}
+  - position: {x: -1.19, y: 0.38}
+    prefab: {fileID: 2056392363505651704, guid: 237aca119d16f4871be104975c7ad4d2, type: 3}
+  - position: {x: 1.5438813, y: 0.41}
+    prefab: {fileID: 2056392363505651704, guid: 237aca119d16f4871be104975c7ad4d2, type: 3}
+  - position: {x: 0.09, y: 0.49}
+    prefab: {fileID: 8014120275277463298, guid: 14636b759a80e4a2eac20e73443fa82a, type: 3}
+  - position: {x: -0.6519841, y: 1.502965}
+    prefab: {fileID: 8559320888626443881, guid: 0de35e2e3cf024dc997ed1ba81135770, type: 3}
+  - position: {x: 0.8020349, y: 1.5623126}
+    prefab: {fileID: 8559320888626443881, guid: 0de35e2e3cf024dc997ed1ba81135770, type: 3}
+  size: 9
